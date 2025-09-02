@@ -8,5 +8,8 @@ To deploy dots.ocr on Baseten follow this [Repo](https://github.com/tobalo/dots.
 ```bash
 cp .env.example .env # Ensure the MODEL_API_URL is mapped to your Baseten Model URL from above
 uv sync
+mkdir samples sample_outputs # Load the documents you want to test in ./samples will use *.pdf
 uv run -m evals
 ```
+
+Wait for completion in `./sample_outputs/`
