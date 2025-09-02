@@ -17,8 +17,8 @@ load_dotenv()
 MODEL_API_URL = os.environ.get("MODEL_API_URL")
 BASETEN_API_KEY = os.environ.get("BASETEN_API_KEY")
 PDF_DPI = 200
-MAX_PAGES_PER_PDF = 10
-OUTPUT_DIR = "large_sample_outputs"
+MAX_PAGES_PER_PDF = 1000
+OUTPUT_DIR = "sample_outputs"
 
 
 def main():
@@ -42,7 +42,7 @@ def main():
     )
     
     # Find PDF files
-    pdf_pattern = "large_samples/*.pdf"
+    pdf_pattern = "samples/*.pdf"
     pdf_files = glob.glob(pdf_pattern)
     
     if not pdf_files:

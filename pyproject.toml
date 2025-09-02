@@ -8,5 +8,7 @@ dependencies = [
     "openai>=1.102.0",
     "pymupdf>=1.26.4",
     "python-dotenv>=1.1.1",
+    "torch>=2.8.0",
+    "transformers>=4.56.0",
     "truss>=0.10.9",
 ]

@@ -13,7 +13,7 @@ import fitz  # PyMuPDF
 class DocumentEvaluator:
     """Document evaluation class for DOTS OCR engine"""
     
-    def __init__(self, api_url: str, api_key: str, output_dir: str = "large_sample_outputs", 
+    def __init__(self, api_url: str, api_key: str, output_dir: str = "sample_outputs", 
                  pdf_dpi: int = 200, max_pages: int = 10):
         """
         Initialize the DocumentEvaluator
@@ -87,7 +87,7 @@ class DocumentEvaluator:
         """Process a single document page"""
         try:
             response = self.client.chat.completions.create(
-                model="dots-ocr",
+                model="DotsOCR",
                 messages=[{
                     "role": "user",
                     "content": [
