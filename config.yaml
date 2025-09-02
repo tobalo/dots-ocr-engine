@@ -1,0 +1,33 @@
+model_metadata:
+  engine_args:
+    model: rednote-hilab/dots.ocr
+  example_model_input:
+    max_tokens: 24000
+    messages:
+    - content: Extract all layout information and content from this document image.
+      role: user
+    stream: false
+    temperature: 0.1
+base_image:
+  image: vllm/vllm-openai:v0.7.3
+docker_server:
+  liveness_endpoint: /health
+  predict_endpoint: /v1/chat/completions
+  readiness_endpoint: /health
+  server_port: 8000
+  start_command: sh -c "HF_TOKEN=$(cat /secrets/hf_access_token) vllm serve rednote-hilab/dots.ocr --trust-remote-code --gpu-memory-utilization
+    0.95 --max-model-len 24000 --enable-prefix-caching --enable-chunked-prefill"
+environment_variables:
+  hf_access_token: None
+model_name: dots-ocr
+python_version: py39
+resources:
+  accelerator: A100
+  cpu: '1'
+  memory: 2Gi
+  use_gpu: true
+runtime:
+  is_websocket_endpoint: false
+  predict_concurrency: 256
+  transport:
+    kind: http

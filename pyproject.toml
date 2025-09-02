@@ -1,0 +1,12 @@
+[project]
+name = "dots-ocr-engine"
+version = "0.1.0"
+description = "Environment for deploying Dots OCR to base ten and evaluating document extraction benchmarks for your samples."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "openai>=1.102.0",
+    "pymupdf>=1.26.4",
+    "python-dotenv>=1.1.1",
+    "truss>=0.10.9",
+]
